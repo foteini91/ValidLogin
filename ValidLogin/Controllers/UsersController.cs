@@ -253,7 +253,7 @@ namespace ValidLogin.Controllers
         //public void Delete(int psw)
         //{
         //    User user = Get(psw);
-        //    list.Remove(user);
+        //    list.Remove(user);  
         //}
 
         //void EnsureAuthenticated(string role)
