@@ -6,24 +6,24 @@ namespace ValidLogin
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    public partial class Questions
+    [Table("Question")]
+    public partial class Question
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Questions()
+        public Question()
         {
-            Answers = new HashSet<Answers>();
+            Answer = new HashSet<Answer>();
             Result = new HashSet<Result>();
         }
 
-        [Key]
-        public int QuestionId { get; set; }
+        public int Id { get; set; }
 
         [Required]
         [StringLength(50)]
-        public string QuestionName { get; set; }
+        public string Name { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Answers> Answers { get; set; }
+        public virtual ICollection<Answer> Answer { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Result> Result { get; set; }

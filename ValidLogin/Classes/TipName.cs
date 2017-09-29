@@ -5,9 +5,8 @@ using System.Web;
 
 namespace ValidLogin
 {
-    public class QuestionAnswerValue
+    public class TipName
     {
-        public int Question_ID { get; set; }
-        public int Answer_ID { get; set; }
+        public string Name { get; set; }
     }
 }

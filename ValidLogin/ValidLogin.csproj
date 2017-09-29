@@ -34,6 +34,8 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <DocumentationFile>
+    </DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -95,6 +97,10 @@
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Mindbox.Expressions, Version=2.0.5420.33605, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Mindbox.Expressions.2.0.5420.33605\lib\net45\Mindbox.Expressions.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="RestSharp, Version=105.2.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\RestSharp.105.2.3\lib\net452\RestSharp.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Swashbuckle.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=cd1bb07a5ac7c7bc, processorArchitecture=MSIL">
@@ -219,12 +225,14 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AgeNameDroolsName.cs" />
-    <Compile Include="AgeSexDrools.cs" />
-    <Compile Include="AllContext.cs" />
-    <Compile Include="Answer.cs" />
+    <Compile Include="Classes\DroolsClass.cs" />
+    <Compile Include="Classes\AnswerName.cs" />
+    <Compile Include="Classes\ResponseClass.cs" />
+    <Compile Include="Classes\TipName.cs" />
+    <Compile Include="Classes\UtilListTip.cs" />
+    <Compile Include="Controllers\TipController.cs" />
+    <Compile Include="Models\Answer.cs" />
     <Compile Include="Controllers\AnswerController.cs" />
-    <Compile Include="Controllers\DroolsController.cs" />
     <Compile Include="Controllers\QuestionController.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
@@ -261,35 +269,24 @@
     <Compile Include="Controllers\Areas\HelpPage\SampleGeneration\SampleDirection.cs" />
     <Compile Include="Controllers\Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Controllers\Areas\HelpPage\XmlDocumentationProvider.cs" />
-    <Compile Include="Controllers\AccountController.cs" />
-    <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\UsersController.cs" />
-    <Compile Include="C__MigrationHistory.cs" />
+    <Compile Include="Database Schema\C__MigrationHistory.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="HealthMeAppData.cs" />
-    <Compile Include="HealthMeApp_Data.cs" />
-    <Compile Include="IdNameAnswer.cs" />
-    <Compile Include="IdValue.cs" />
-    <Compile Include="Models\AccountBindingModels.cs" />
-    <Compile Include="Models\AccountViewModels.cs" />
-    <Compile Include="Context\UTContext.cs" />
+    <Compile Include="Database Schema\HealthMeApp_Data.cs" />
+    <Compile Include="Classes\IdNameAnswer.cs" />
+    <Compile Include="Classes\IdValue.cs" />
     <Compile Include="Models\IdentityModels.cs" />
-    <Compile Include="Models\Tip.cs" />
-    <Compile Include="Models\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Providers\ApplicationOAuthProvider.cs" />
-    <Compile Include="Question.cs" />
-    <Compile Include="QuestionAnswerValue.cs" />
-    <Compile Include="QuestionContext.cs" />
-    <Compile Include="Result.cs" />
+    <Compile Include="Models\Question.cs" />
+    <Compile Include="Models\Result.cs" />
     <Compile Include="Results\ChallengeResult.cs" />
-    <Compile Include="ResultValue.cs" />
     <Compile Include="Startup.cs" />
-    <Compile Include="sysdiagrams.cs" />
-    <Compile Include="Tip.cs" />
-    <Compile Include="User.cs" />
+    <Compile Include="Database Schema\sysdiagrams.cs" />
+    <Compile Include="Models\Tip.cs" />
+    <Compile Include="Models\User.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Controllers\Areas\HelpPage\HelpPage.css" />
@@ -355,9 +352,7 @@
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="App_Data\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
@@ -366,9 +361,6 @@
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
-  </ItemGroup>
-  <ItemGroup>
-    <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

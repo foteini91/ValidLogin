@@ -6,6 +6,7 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Text;
+using System.Threading.Tasks;
 using System.Web.Http;
 using System.Web.Security;
 using ValidLogin.Models;
@@ -14,30 +15,8 @@ namespace ValidLogin.Controllers
 {
     public class UsersController : ApiController
     {
-        //private static IList<User> listUser = new List<User>();
-        //private static IList<Tip> listTips = new List<Tip>();
-
-        //public static void InitializeMockData()
-        //{
-        //    listTips.Add(new Tip { Name = "drink water" });
-        //    listTips.Add(new Tip { Name = "drink water again" });
-
-        //    //1os tropos
-        //    //var user1 = new User();
-        //    //user1.username = "f";
-        //    //user1.password = "1234";
-        //    //user1.tipsList = listTips;
-        //    // listUser.Add(user1);
-
-        //    listUser.Add(new User { username = "f1", password = "7890", tipsList = listTips });
-        //    listUser.Add(new User { username = "f2", password = "1234", tipsList = listTips });
-        //    listUser.Add(new User { username = "f3", password = "4567", tipsList = listTips });
-
-        //}
-
-
-
-        // GET api/values
+       
+        // GET api/values /// Tipcontrolles kanei ayti ti leitoyrgia.. isos tha to sbiso ayto
         [ActionName("FindTipUsers")]
         public IEnumerable<string> Get(string usr)
         {
@@ -141,24 +120,11 @@ namespace ValidLogin.Controllers
                 item.Longitude = lon;
               
                 db.SaveChanges();
-
-                //var co1 = (from item in db.User
-                //            where (item.Id == id_U)
-                //           select item.Id).First();
-                //insert.Longitude
             }
 
         }
 
-        //[ActionName("FindAllPropertiesOfTipsByUser")]
-        //public IEnumerable<Tip> GetTipsByUser(string userName)
-        //{
-        //    Context db = new Context();
-        //    var user = from u in db.Users where u.username == userName select u;
-        //    var tipsProp = user.SelectMany().tipsList;
-        //    return tipsProp;
-        //}
-
+      
 
 
 
@@ -219,50 +185,6 @@ namespace ValidLogin.Controllers
         //    return listUser.Any(li => li.password == newuser.password && li.username == newuser.username);
         //}
 
-
-
-        //[ActionName("CreateNewUser")]
-        //public void CreateNewAccount(string userName, string password)
-        //{
-        //    SqlConnection Connection = new SqlConnection("data source=localhost;initial catalog=DefaultConnection;integrated security=True;MultipleActiveResultSets=True;App=EntityFramework");
-        //    Connection.Open();
-        //    SqlCommand Command = new SqlCommand( " INSERT INTO UserDetails VALUES('" + userName + "', '" + password + "')"  , Connection );
-
-
-
-        //   // string query = "INSERT INTO UserDetails VALUES ('" + firstName + "','" + lastName + "','" + userName + "','" + password + "');";
-
-
-        //    Command.ExecuteNonQuery();
-
-        //    Connection.Close();
-        //}
-
-
         
-
-
-        //// PUT api/values/5
-        //public void Put(int psw, User user)
-        //{
-        //    int index = list.ToList().FindIndex(e => e.password == psw);
-        //    list[index] = user;
-        //}
-
-        //// DELETE api/values/5
-        //public void Delete(int psw)
-        //{
-        //    User user = Get(psw);
-        //    list.Remove(user);  
-        //}
-
-        //void EnsureAuthenticated(string role)
-        //{
-        //    string[] parts = UTF8Encoding.UTF8.GetString(Convert.FromBase64String(Request.Headers.Authorization.Parameter)).Split(':');
-        //    if (parts.Length != 2 || !Membership.ValidateUser(parts[0], parts[1]))
-        //        throw new HttpResponseException(Request.CreateErrorResponse(HttpStatusCode.Unauthorized, "No account with that username and password"));
-        //    if (role != null && !Roles.IsUserInRole(parts[0], role))
-        //        throw new HttpResponseException(Request.CreateErrorResponse(HttpStatusCode.Unauthorized, "An administrator account is required"));
-        //}
     }
 }

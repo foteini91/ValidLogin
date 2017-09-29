@@ -17,17 +17,19 @@ namespace ValidLogin
         [Key]
         [Column(Order = 1)]
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
-        public int QuestId { get; set; }
+        public int QuestionId { get; set; }
 
         [Key]
         [Column(Order = 2)]
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
-        public int AnsId { get; set; }
+        public int AnswerId { get; set; }
 
-        public virtual Answers Answers { get; set; }
+        public virtual Answer Answer { get; set; }
 
-        public virtual Questions Questions { get; set; }
+        public virtual Question Question { get; set; }
 
-        public virtual Users Users { get; set; }
+        public virtual User User { get; set; }
+
+       
     }
 }

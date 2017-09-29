@@ -1,50 +1,37 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Web;
-
-namespace ValidLogin.Models
+namespace ValidLogin
 {
-    public class User
+    using System;
+    using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations;
+    using System.ComponentModel.DataAnnotations.Schema;
+    using System.Data.Entity.Spatial;
 
+    [Table("User")]
+    public partial class User
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public User()
         {
-            tipsList = new HashSet<Tip>();
+            Tip = new HashSet<Tip>();
+            Result = new HashSet<Result>();
         }
 
-        [Key]
         public int Id { get; set; }
+
         [Required]
-        public string username { get; set; }
+        public string Username { get; set; }
+
         [Required]
-        public string password { get; set; }
-        public virtual ICollection<Tip> tipsList { get; set; }
+        public string Password { get; set; }
 
+        public double Longitude { get; set; }
 
+        public double Latitude { get; set; }
 
-        //public static IList<Tip> tipsList = new List<Tip>()
-        //{
-        //    new Tip() { Name="Drink water!" },
-        //    new Tip() { Name="Go for a walk!" },
-        //};
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Tip> Tip { get; set; }
 
-        //public User(string un, string pw, List<Tips> TIPS)
-        //{
-        //    username = un;
-        //    password = pw;
-        //    tipsList = new List<Tips>();
-        //{              
-        //new Tips() { tip="Drink water!" },
-        //new Tips() { tip="Go for a walk!" }
-        //};
-
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Result> Result { get; set; }
     }
-}        
-
-
-
-
-   
-
+}
